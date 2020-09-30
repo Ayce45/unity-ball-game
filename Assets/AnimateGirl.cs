@@ -18,50 +18,55 @@ public class AnimateGirl : MonoBehaviour
     }
 
     static readonly int Speed = Animator.StringToHash("Speed");
+    static readonly int Jump = Animator.StringToHash("Jump");
+    static readonly int Rool = Animator.StringToHash("Rool");
+
+
 
     void Update()
     {
-        var maxDistancePerFrame = MaxSpeed * Time.deltaTime;
-        Vector2 speed = Vector2.zero;
+        var maxDisancePerFrame = MaxSpeed * Time.deltaTime;
+        Vector3 move = Vector3.zero;
+
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            animator.SetFloat("Speed", 1f);
+            move += Vector3.right * maxDisancePerFrame;
             mySpriteRenderer.flipX = false;
-            speed += Vector2.right * maxDistancePerFrame;
         }
         else if (Input.GetKey(KeyCode.LeftArrow))
         {
-            animator.SetFloat("Speed", 2f);
+            move += Vector3.left * maxDisancePerFrame;
             mySpriteRenderer.flipX = true;
-            speed += Vector2.left * maxDistancePerFrame;
         }
-        else if (Input.GetKey(KeyCode.Space))
-        {
-            animator.SetFloat("Speed", 3f);
-        }
-        else if (Input.GetKey(KeyCode.LeftShift))
-        {
-            animator.SetFloat("Speed", 4f);
-        }
-        else if (Input.GetKey(KeyCode.UpArrow))
-        {
-            animator.SetFloat("Speed", 5f);
-            speed += Vector2.up * maxDistancePerFrame;
-            mySpriteRenderer.flipY = false;
 
+        if (Input.GetKey(KeyCode.UpArrow))
+        {
+            move += Vector3.up * maxDisancePerFrame;
         }
         else if (Input.GetKey(KeyCode.DownArrow))
         {
-            animator.SetFloat("Speed", 5f);
-            speed += Vector2.down * maxDistancePerFrame;
-            mySpriteRenderer.flipY = true;
+            move += Vector3.down * maxDisancePerFrame;
+        }
 
+        if (Input.GetKey(KeyCode.Space))
+        {
+            animator.SetBool("Jump", true);
         }
         else
         {
-            animator.SetFloat("Speed", 0f);
-            mySpriteRenderer.flipY = false;
+            animator.SetBool("Jump", false);
         }
-        this.transform.position = this.transform.position + (Vector3)speed;
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            animator.SetBool("Roll", true);
+        }
+        else
+        {
+            animator.SetBool("Roll", false);
+        }
+
+        animator.SetFloat(Speed, move.magnitude * 10f);
+        this.transform.position = this.transform.position + move;
     }
 }

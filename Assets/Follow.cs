@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FollowGirl : MonoBehaviour
+public class Follow : MonoBehaviour
 {
     [Tooltip("Target element")]
     public GameObject target;
