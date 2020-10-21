@@ -12,7 +12,6 @@ public class Follow : MonoBehaviour
     {
     }
 
-    // Update is called once per frame
     void LateUpdate()
     {
         if (this.transform.position.x - target.transform.position.x > deadZone)
@@ -31,7 +30,6 @@ public class Follow : MonoBehaviour
         else if (this.transform.position.y - target.transform.position.y < -deadZone)
         {
             this.transform.position = new Vector3(this.transform.position.x, target.transform.position.y - deadZone, this.transform.position.z);
-
         }
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator), typeof(SpriteRenderer))]
-public class AnimateGirl : MonoBehaviour
+public class AnimateGirl2 : MonoBehaviour
 {
     [Tooltip("Vitesse max en unité par seconde")]
     public int MaxSpeed = 4;
@@ -28,27 +28,27 @@ public class AnimateGirl : MonoBehaviour
         var maxDisancePerFrame = MaxSpeed * Time.deltaTime;
         Vector3 move = Vector3.zero;
 
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.RightArrow))
         {
             move += Vector3.right * maxDisancePerFrame;
             mySpriteRenderer.flipX = false;
         }
-        else if (Input.GetKey(KeyCode.Q))
+        else if (Input.GetKey(KeyCode.LeftArrow))
         {
             move += Vector3.left * maxDisancePerFrame;
             mySpriteRenderer.flipX = true;
         }
 
-        if (Input.GetKey(KeyCode.Z))
+        if (Input.GetKey(KeyCode.UpArrow))
         {
             move += Vector3.up * maxDisancePerFrame;
         }
-        else if (Input.GetKey(KeyCode.S))
+        else if (Input.GetKey(KeyCode.DownArrow))
         {
             move += Vector3.down * maxDisancePerFrame;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.RightControl))
         {
             animator.SetBool("Jump", true);
         }
@@ -57,7 +57,7 @@ public class AnimateGirl : MonoBehaviour
             animator.SetBool("Jump", false);
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.RightShift))
         {
             animator.SetBool("Roll", true);
         }
