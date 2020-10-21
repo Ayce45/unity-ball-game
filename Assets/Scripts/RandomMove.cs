@@ -7,7 +7,6 @@ public class RandomMove : MonoBehaviour
     SpriteRenderer mySpriteRenderer;
     DateTime currentTime = DateTime.Now;
     Vector3 randomDirection;
-    float timer = 0f;
 
     void Start()
     {
@@ -31,6 +30,5 @@ public class RandomMove : MonoBehaviour
         this.transform.position = this.transform.position + move;
 
         transform.Rotate(0f, 0f, Time.deltaTime * 360);
-        timer += Time.deltaTime;
     }
 }
