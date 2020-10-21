@@ -30,7 +30,7 @@ public class Follow : MonoBehaviour
             ? ((desiredWidth / currentWidth) * currentHeight) / 2.0f
             : ((desiredHeight / currentHeight) * currentWidth) / 2.0f
             ;
-        targetSize += 1.0f;
+        targetSize += 4.0f;
         this.cam.orthographicSize = Mathf.Lerp(this.cam.orthographicSize, targetSize, Time.deltaTime);
 
         var position = this.cam.transform.position;
