@@ -8,22 +8,11 @@ public class Follow : MonoBehaviour
 {
     public List<GameObject> targets;
 
-    public Vector3 offset;
-    public float smoothTime = .5f;
-
-    public float minZoom = 40f;
-    public float maxZoom = 10f;
-    public float zoomLimiter = 50f;
-
-    private Vector3 velocity;
     private Camera cam;
-
 
     private void Start()
     {
-
         cam = GetComponent<Camera>();
-
     }
 
     private void LateUpdate()
