@@ -526,6 +526,7 @@ GameObject:
   m_Component:
   - component: {fileID: 729684652}
   - component: {fileID: 729684654}
+  - component: {fileID: 729684655}
   - component: {fileID: 729684653}
   m_Layer: 0
   m_Name: Score
@@ -548,24 +549,102 @@ Transform:
   m_Father: {fileID: 1011650990}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &729684653
-MonoBehaviour:
+--- !u!82 &729684653
+AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 729684651}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac44c7e74e36eb04aaa19cca4c3f6499, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GoalAudioData: {fileID: 1483199394}
-  WelcomeAudioData: {fileID: 1848084726}
-  target: {fileID: 8974261319546897728, guid: 0eb6abff79c26454ea2f107d1980c4dc, type: 3}
-  players: []
-  balls: []
-  points: []
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!61 &729684654
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -592,11 +671,42 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 2.2594252}
   m_EdgeRadius: 0
+--- !u!114 &729684655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 729684651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 515e8954a93ae3a4985b479ed67b8a8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GoalAudioData: {fileID: 1483199394}
+  WelcomeAudioData: {fileID: 1848084726}
+  target: {fileID: 8974261319546897728, guid: 0eb6abff79c26454ea2f107d1980c4dc, type: 3}
+  players: []
+  balls: []
+  points: []
 --- !u!1 &920611281 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2491471051125142296, guid: 37f14747194ada14193061501334479c, type: 3}
   m_PrefabInstance: {fileID: 2491471050356087497}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &920611287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 920611281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2be6df9a7897924b810c4527f138a6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpeedValue: 100
 --- !u!1 &1011650987
 GameObject:
   m_ObjectHideFlags: 0
@@ -690,8 +800,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1145487975}
   - component: {fileID: 1145487977}
-  - component: {fileID: 1145487978}
   - component: {fileID: 1145487976}
+  - component: {fileID: 1145487978}
   m_Layer: 0
   m_Name: Score
   m_TagString: Untagged
@@ -722,7 +832,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1145487974}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 515e8954a93ae3a4985b479ed67b8a8c, type: 3}
+  m_Script: {fileID: 11500000, guid: ac44c7e74e36eb04aaa19cca4c3f6499, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   GoalAudioData: {fileID: 1483199394}

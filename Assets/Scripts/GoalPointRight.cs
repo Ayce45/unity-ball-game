@@ -1,25 +1,23 @@
 ﻿using System;
 using UnityEngine;
 using System.Collections;
-using UnityEngine.SceneManagement;
 
-
-public class GoalPoint2 : MonoBehaviour
+[RequireComponent(typeof(AudioSource))]
+public class GoalPointRight : MonoBehaviour
 {
     SpriteRenderer mySpriteRenderer;
     public AudioSource GoalAudioData;
     public AudioSource WelcomeAudioData;
+
     [Tooltip("Target element")]
     public GameObject target;
-    private float x = 7f;
+    private float x = -7f;
     private float y = 3.5f;
     public GameObject[] players;
     public GameObject[] balls;
-
     public GameObject[] points;
 
     private int point = 0;
-
     void Start()
     {
         mySpriteRenderer = GetComponent<SpriteRenderer>();
@@ -50,7 +48,7 @@ public class GoalPoint2 : MonoBehaviour
     {
         var instance = Instantiate(target);
         instance.transform.position = new Vector3(x, y, 1);
-        x--;
+        x++;
         point++;
         if (point == 5)
         {
@@ -59,7 +57,7 @@ public class GoalPoint2 : MonoBehaviour
             {
                 Destroy(point);
             }
-            x = 7f;
+            x = -7f;
             y = 3.5f;
         }
     }
@@ -118,7 +116,6 @@ public class GoalPoint2 : MonoBehaviour
         }
         Time.timeScale = 1f;
         WelcomeAudioData.Play();
-
     }
 
     void restartSizeCamera()
