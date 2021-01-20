@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2491471051125142298}
   - component: {fileID: 2491471051125142299}
-  - component: {fileID: 516645506649756897}
   - component: {fileID: 920611286}
   - component: {fileID: 920611285}
   - component: {fileID: 920611288}
@@ -29,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2491471051125142296}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.25, y: -1.038, z: 0}
+  m_LocalPosition: {x: 0.25, y: -0.24, z: 0}
   m_LocalScale: {x: 0.22215675, y: 0.22215675, z: 0.22215675}
   m_Children:
   - {fileID: 2491471050691437205}
@@ -87,19 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &516645506649756897
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2491471051125142296}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2ee854be2fbc124daea36f5902356f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioData: {fileID: 0}
 --- !u!50 &920611286
 Rigidbody2D:
   serializedVersion: 4

@@ -8,14 +8,16 @@ public class GoalPointLeft : MonoBehaviour
 {
     SpriteRenderer mySpriteRenderer;
     public AudioSource GoalAudioData;
+    public AudioSource WinAudioData;
     public AudioSource WelcomeAudioData;
     [Tooltip("Target element")]
     public GameObject target;
-    private float x = 7f;
-    private float y = 3.5f;
+    public GameObject fight;
+    public GameObject goledAnimation;
+    private float x = -0.35f;
+    private float y = 0.8f;
     public GameObject[] players;
     public GameObject[] balls;
-
     public GameObject[] points;
 
     private int point = 0;
@@ -23,13 +25,8 @@ public class GoalPointLeft : MonoBehaviour
     void Start()
     {
         mySpriteRenderer = GetComponent<SpriteRenderer>();
+        players = GameObject.FindGameObjectsWithTag("Player");
     }
-
-    void Update()
-    {
-
-    }
-
     void OnCollisionEnter2D(Collision2D collision2D)
     {
         if (collision2D.gameObject.tag == "Ball")
@@ -41,6 +38,10 @@ public class GoalPointLeft : MonoBehaviour
         }
     }
 
+    void playAnimation()
+    {
+        goledAnimation.GetComponent<ParticleSystem>().Play();
+    }
     void playSound()
     {
         GoalAudioData.Play();
@@ -49,18 +50,27 @@ public class GoalPointLeft : MonoBehaviour
     void addPoint()
     {
         var instance = Instantiate(target);
-        instance.transform.position = new Vector3(x, y, 1);
-        x--;
+        foreach (GameObject player in players)
+        {
+            if (player.name.Equals("Player 2"))
+            {
+                instance.transform.SetParent(player.transform);
+                instance.transform.localPosition = new Vector3(x, y, 1);
+            }
+        }
+        x = x + 0.15f;
         point++;
         if (point == 5)
         {
+            WinAudioData.Play();
             points = GameObject.FindGameObjectsWithTag("Point");
+            print(points);
             foreach (GameObject point in points)
             {
                 Destroy(point);
             }
-            x = 7f;
-            y = 3.5f;
+            x = -0.35f;
+            y = 0.8f;
         }
     }
 
@@ -77,7 +87,6 @@ public class GoalPointLeft : MonoBehaviour
 
         foreach (GameObject player in players)
         {
-            player.GetComponent<TrailRenderer>().Clear();
             if (player.name.Equals("Player 1"))
             {
                 player.transform.position = new Vector3(-0.7f, 0.9f, 0);
@@ -118,7 +127,7 @@ public class GoalPointLeft : MonoBehaviour
         }
         Time.timeScale = 1f;
         WelcomeAudioData.Play();
-
+        fight.GetComponent<ParticleSystem>().Play();
     }
 
     void restartSizeCamera()

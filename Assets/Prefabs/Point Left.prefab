@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8974261319546897728, guid: 0eb6abff79c26454ea2f107d1980c4dc, type: 3}
       propertyPath: m_Name
-      value: Point2
+      value: Point Left
       objectReference: {fileID: 0}
     - target: {fileID: 8974261319546897729, guid: 0eb6abff79c26454ea2f107d1980c4dc, type: 3}
       propertyPath: m_Color.r
@@ -66,6 +66,14 @@ PrefabInstance:
     - target: {fileID: 8974261319546897730, guid: 0eb6abff79c26454ea2f107d1980c4dc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974261319546897730, guid: 0eb6abff79c26454ea2f107d1980c4dc, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974261319546897730, guid: 0eb6abff79c26454ea2f107d1980c4dc, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0eb6abff79c26454ea2f107d1980c4dc, type: 3}

@@ -6,13 +6,16 @@ using System.Collections;
 public class GoalPointRight : MonoBehaviour
 {
     SpriteRenderer mySpriteRenderer;
+    public AudioSource WinAudioData;
     public AudioSource GoalAudioData;
     public AudioSource WelcomeAudioData;
 
     [Tooltip("Target element")]
     public GameObject target;
-    private float x = -7f;
-    private float y = 3.5f;
+    public GameObject fight;
+    public GameObject goledAnimation;
+    private float x = -0.35f;
+    private float y = 0.8f;
     public GameObject[] players;
     public GameObject[] balls;
     public GameObject[] points;
@@ -21,11 +24,8 @@ public class GoalPointRight : MonoBehaviour
     void Start()
     {
         mySpriteRenderer = GetComponent<SpriteRenderer>();
-    }
-
-    void Update()
-    {
-
+        players = GameObject.FindGameObjectsWithTag("Player");
+        balls = GameObject.FindGameObjectsWithTag("Ball");
     }
 
     void OnCollisionEnter2D(Collision2D collision2D)
@@ -47,18 +47,27 @@ public class GoalPointRight : MonoBehaviour
     void addPoint()
     {
         var instance = Instantiate(target);
-        instance.transform.position = new Vector3(x, y, 1);
-        x++;
+        foreach (GameObject player in players)
+        {
+            if (player.name.Equals("Player 1"))
+            {
+                instance.transform.SetParent(player.transform);
+                instance.transform.localPosition = new Vector3(x, y, 1);
+            }
+        }
+        x = x + 0.15f;
         point++;
         if (point == 5)
         {
+            WinAudioData.Play();
             points = GameObject.FindGameObjectsWithTag("Point");
+            print(points);
             foreach (GameObject point in points)
             {
                 Destroy(point);
             }
-            x = -7f;
-            y = 3.5f;
+            x = -0.35f;
+            y = 0.8f;
         }
     }
 
@@ -71,11 +80,8 @@ public class GoalPointRight : MonoBehaviour
 
     void restartPositionPlayers()
     {
-        players = GameObject.FindGameObjectsWithTag("Player");
-
         foreach (GameObject player in players)
         {
-            player.GetComponent<TrailRenderer>().Clear();
             if (player.name.Equals("Player 1"))
             {
                 player.transform.position = new Vector3(-0.7f, 0.9f, 0);
@@ -89,8 +95,6 @@ public class GoalPointRight : MonoBehaviour
 
     void restartPositionBalls()
     {
-        balls = GameObject.FindGameObjectsWithTag("Ball");
-
         foreach (GameObject ball in balls)
         {
             ball.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
@@ -116,6 +120,7 @@ public class GoalPointRight : MonoBehaviour
         }
         Time.timeScale = 1f;
         WelcomeAudioData.Play();
+        fight.GetComponent<ParticleSystem>().Play();
     }
 
     void restartSizeCamera()

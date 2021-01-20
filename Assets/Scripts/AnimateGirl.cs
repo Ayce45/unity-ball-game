@@ -8,19 +8,22 @@ public class AnimateGirl : MonoBehaviour
     [Tooltip("Vitesse max en unité par seconde")]
     public int MaxSpeed = 4;
     Animator animator;
+    public AudioSource WelcomeAudioData;
+    public GameObject fight;
     SpriteRenderer mySpriteRenderer;
-    Rigidbody2D rigidbody2D;
+    Rigidbody2D rigidbody2d;
+    public float forceApplied = 10;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
         mySpriteRenderer = GetComponent<SpriteRenderer>();
-        rigidbody2D = GetComponent<Rigidbody2D>();
+        rigidbody2d = GetComponent<Rigidbody2D>();
     }
 
     static readonly int Speed = Animator.StringToHash("Speed");
     static readonly int Jump = Animator.StringToHash("Jump");
-    static readonly int Rool = Animator.StringToHash("Rool");
+    static readonly int Roll = Animator.StringToHash("Roll");
     void FixedUpdate()
     {
         var maxDisancePerFrame = MaxSpeed;
@@ -46,25 +49,38 @@ public class AnimateGirl : MonoBehaviour
             move += Vector3.down * maxDisancePerFrame;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space))
         {
-            animator.SetBool("Jump", true);
+            GetComponent<CircleCollider2D>().isTrigger = true;
+            animator.SetBool(Jump, true);
         }
         else
         {
-            animator.SetBool("Jump", false);
+            GetComponent<CircleCollider2D>().isTrigger = false;
+            animator.SetBool(Jump, false);
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift))
         {
-            animator.SetBool("Roll", true);
+            animator.SetBool(Roll, true);
         }
         else
         {
-            animator.SetBool("Roll", false);
+            animator.SetBool(Roll, false);
         }
 
         animator.SetFloat(Speed, move.magnitude * 10f);
-        rigidbody2D.velocity = move;
+        rigidbody2d.velocity = move;
+    }
+
+    void OnCollisionEnter2D(Collision2D collision2D)
+    {
+        if (collision2D.gameObject.tag == "Ball")
+        {
+            if (animator.GetBool(Roll))
+            {
+                collision2D.gameObject.GetComponent<Rigidbody2D>().AddForce(collision2D.contacts[0].normal * -forceApplied, ForceMode2D.Impulse);
+            }
+        }
     }
 }
