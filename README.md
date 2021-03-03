@@ -12,7 +12,6 @@ Jeu à deux joueurs sur le même clavier qui permet de s'affronter sur une parti
 - 🎉 Au bout de 5 buts le joueur est déclaré vainqueur 
 - 🔊 Des sons relatifs a Windows, Pixar et MSN sont intégrés dans le jeu 
 - 🦂 Les scores des joueurs s'affichent au dessus de leurs têtes
-- 🐇 Un easter egg est caché dans le jeu ... 
 ### Physique
 - 🧱 La balle rebondie contre les murs
 - 👟 Frapper la balle et entrer en collision avec elle la propulse dans la direction du personnage 
