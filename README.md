@@ -1,5 +1,7 @@
 # ball-game
 Jeu à deux joueurs sur le même clavier qui permet de s'affronter sur une partie de foot ⚽
+## Screenshot
+![ezgif-2-12881db148a1](https://user-images.githubusercontent.com/32338891/109543488-a416c100-7ac6-11eb-9a1e-95978d93da71.gif)
 ## Fonctionnalités
 ### Gameplay
 - 🕹 Un menu permet de lancer le jeu
@@ -35,5 +37,3 @@ Jeu à deux joueurs sur le même clavier qui permet de s'affronter sur une parti
 - ⏸ Pouvoir mettre en pause le jeu avec la touche `p`
 - ⏹ Retour au menu avec la touche `Echap`
 ### Enjoy
-## Screenshot
-![ezgif-2-12881db148a1](https://user-images.githubusercontent.com/32338891/109543488-a416c100-7ac6-11eb-9a1e-95978d93da71.gif)
