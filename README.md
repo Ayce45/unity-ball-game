@@ -25,7 +25,7 @@ Jeu à deux joueurs sur le même clavier qui permet de s'affronter sur une parti
 ### Prefabs
 - 🧔 Les deux joueurs sont des préfabs puisse qu'ils utilisent sensiblement la même mécanique 
 ### Export
-- 💻 Le jeu est disponible sur une version web : [https://app.evanjuge.fr/game/](https://app.evanjuge.fr/game/)
+- 💻 Le jeu est disponible sur une version web : [https://app.evanjuge.fr/game/](https://app.evanjuge.fr/ball-game/)
 ### Organisation
 - ♻ Tout le code est rangé dans des dossiers selon leurs types
 - 🦺 Utilisation de git pour le versionning
